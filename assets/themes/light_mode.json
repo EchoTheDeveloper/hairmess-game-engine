@@ -1,0 +1,18 @@
+{
+    "background_color": "#FFFFFF",
+    "entry": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000"
+    },
+    "button": {
+        "background_color": "#DDDDDD",
+        "text_color": "#000000"
+    },
+    "label": {
+        "text_color": "#000000"
+    },
+    "treeview": {
+        "background_color": "#FFFFFF",
+        "text_color": "#000000"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "background_color": "#FFCC00",
+    "text_color": "#333333",
+    "button_color": "#FF5733",
+    "button_text_color": "#FFFFFF",
+    "entry_background_color": "#00BCD4",
+    "entry_text_color": "#FFFFFF",
+    "label_color": "#4CAF50",
+    "label_text_color": "#FFFFFF",
+    "treeview_background_color": "#FF9800",
+    "treeview_text_color": "#FFFFFF"
+  }

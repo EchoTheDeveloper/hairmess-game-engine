@@ -17,7 +17,7 @@ while running:
 
     # Update game state
     # (Add any game logic or updates here)
-
+    
     # Draw "Hello World!" text at the center of the screen
     espagl.write_text("Hello World!", Vector2(300, 180), (0, 255, 0))
     espagl.render_sprite(sprite_file_location='assets/setup/example/scenes/hairmesslogo.png', sprite_pos_x=100, sprite_pos_y=100, sprite_scale_x=200, sprite_scale_y=200)

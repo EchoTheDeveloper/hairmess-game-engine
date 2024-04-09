@@ -63,7 +63,7 @@ class ESPAGL:
 
     def add_input(self, name, keys):
         # Map the input name to a list of pygame key constants
-        self.inputs[name] = [getattr(pygame, key) for key in keys]
+        self.inputs[name] = [getattr(pygame, key) for key in keys] 
 
     def get_input(self):
         keys = pygame.key.get_pressed()
