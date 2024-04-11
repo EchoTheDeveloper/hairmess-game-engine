@@ -71,3 +71,10 @@ class ESPAGL:
             if any(keys[key] for key in key_list):
                 return name
         return None
+    
+    def load_scene(self, scene_file_path):
+        try:
+            os.system(f'python {scene_file_path}.py')
+        except FileNotFoundError:
+            print(f"Error: The file '{file_path}' does not exist.")
+
