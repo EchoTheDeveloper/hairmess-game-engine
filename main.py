@@ -90,6 +90,7 @@ class HairmessGameEngine():
             # Copy the example folder to create a new project
             shutil.copytree('assets/setup/example', os.path.join(projects_path, project_name))
             messagebox.showinfo("Success", f"Project '{project_name}' created successfully!")
+            os.system(f'python projects/{project_name}/gui.py')
             self.refresh_projects_list()  # Refresh the projects list
         except Exception as e:
             messagebox.showerror("Error", f"Failed to create project: {e}")
