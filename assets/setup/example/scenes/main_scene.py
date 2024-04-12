@@ -26,3 +26,5 @@ while running:
 
 # Close the game
 espagl.close_game()
+
+

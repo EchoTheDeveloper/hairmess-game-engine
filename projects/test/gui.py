@@ -2,9 +2,6 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
 
-# Global variable to hold the current file path being edited
-current_file_path = None
-
 def create_scene_file():
     scene_name = scene_name_entry.get()
     if scene_name:
@@ -12,8 +9,6 @@ def create_scene_file():
         with open(scene_file_path, 'w') as f:
             f.write("# This is a new scene file.")
         messagebox.showinfo("Scene Created", f"Scene '{scene_name}.py' created successfully!")
-        # Refresh the files list after creating a new scene file
-        list_files_in_directory("scenes")
 
 def list_files_in_directory(directory):
     files_listbox.delete(0, tk.END)  # Clear previous list
@@ -22,32 +17,23 @@ def list_files_in_directory(directory):
         files_listbox.insert(tk.END, file)
 
 def open_file_in_editor(file_path):
-    global current_file_path
     with open(file_path, 'r') as f:
         file_content = f.read()
     text_editor.delete(1.0, tk.END)  # Clear previous content
     text_editor.insert(tk.END, file_content)
-    current_file_path = file_path  # Set current file path
     # Disable scene list and show back button
     files_listbox.config(state=tk.DISABLED)
     back_button.pack(side=tk.LEFT, padx=10)
 
-def save_file_changes():
-    global current_file_path
-    if current_file_path:
-        new_content = text_editor.get(1.0, tk.END)
-        with open(current_file_path, 'w') as f:
-            f.write(new_content)
-        messagebox.showinfo("File Saved", "Changes saved successfully!")
-    else:
-        messagebox.showwarning("No File Selected", "No file is currently open for editing.")
+def save_file_changes(file_path):
+    new_content = text_editor.get(1.0, tk.END)
+    with open(file_path, 'w') as f:
+        f.write(new_content)
+    messagebox.showinfo("File Saved", "Changes saved successfully!")
 
 def back_to_file_list():
     files_listbox.config(state=tk.NORMAL)
     back_button.pack_forget()
-    # Clear current file path after navigating back
-    global current_file_path
-    current_file_path = None
 
 # Create the main window
 root = tk.Tk()
@@ -104,7 +90,7 @@ text_editor = tk.Text(text_editor_frame, width=60, height=15)
 text_editor.pack()
 
 # Save Changes Button
-save_changes_button = tk.Button(root, text="Save Changes", command=save_file_changes)
+save_changes_button = tk.Button(root, text="Save Changes", command=lambda: save_file_changes(file_path))
 save_changes_button.pack(pady=10)
 
 root.mainloop()
